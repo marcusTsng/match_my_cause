@@ -24,7 +24,7 @@ def profile_page():
     username = st.text_input("Username:", "DefaultUsernameTest")
     st.text(f"Just for testing: Username is {username}")
     st.text("kill yourself")
-    st.text("i want to have babies with andrew")
+    st.text("i want to have babies with mack")
 
 # Sidebar (menu/page selection) code
 with st.sidebar:
