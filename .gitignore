@@ -1,5 +1,4 @@
 # --- Streamlit Secrets ---
-# This is the most important part! Never upload your keys.
 .streamlit/
 
 # --- Python Clutter ---
@@ -14,5 +13,4 @@ __pycache__/
 .DS_Store
 
 # --- Template Reminder ---
-# We keep the .example files so others know what to fill in
 !secrets.toml.example
