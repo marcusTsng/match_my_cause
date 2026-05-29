@@ -1,16 +1,14 @@
-# --- Streamlit Secrets ---
+# --- DO NOT REMOVE !!! Streamlit Secrets ---
 .streamlit/
 secrets.toml
 
 # --- Python Clutter ---
-# Ignore the virtual environment folder
 .matchmycause/
 __pycache__/
 *.pyc
 .env
 
 # --- OS Specific ---
-# Ignore Mac system files
 .DS_Store
 
 # --- Template Reminder ---
