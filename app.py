@@ -50,26 +50,23 @@ for index, row in charitiesLoaded.iterrows():
 
 # allCharities should now hold all charities within the database as objects in the Charity class.
 
-print([charity.name for charity in allCharities]) # Debug
-
 
 def uploadToSheet(name, category, tags, website, logoURL, description):
     toUpload = {
-        'name': name,
-        'category': category,
-        'status': "Pending",
-        'tags': tags, # Separated by commas (please)
-        'website': website,
-        'logoURL': logoURL,
-        'description': description
+        'Name': name,
+        'Category': category,
+        'Status': "Pending",
+        'Tags': tags, # Separated by commas (please)
+        'Website': website,
+        'LogoURL': logoURL,
+        'Description': description
     }
 
     currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
-    updatedState = pd.concat([currentState, toUpload], ignore_index=True)
+    updatedState = pd.concat([currentState, pd.DataFrame([toUpload])], ignore_index=True)
     conn.update(worksheet="Sheet1", data=updatedState)
 
-    st.cache_data.clear()
-    st.rerun() # Ensures the website updates after uploading
+    st.cache_data.clear() # Ensures the website updates after uploading
 
 
 # Home page code
