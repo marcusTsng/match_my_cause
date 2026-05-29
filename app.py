@@ -5,7 +5,7 @@ import pandas as pd
 
 # Class for all charities
 class Charity:
-    def __init__(self, ID, name, category, status, tags, website, logoURL, description):
+    def __init__(self, ID, name, category, status, tags, website, logoURL, donationURL, description):
         self.ID = ID
         self.name = name
         self.category = category
@@ -13,6 +13,7 @@ class Charity:
         self.tags = tags
         self.website = website
         self.logoURL = logoURL
+        self.donationURL = donationURL
         self.description = description
 
 
@@ -35,6 +36,7 @@ for index, row in charitiesLoaded.iterrows():
         tags=tagList,
         website=row['Website'],
         logoURL=row['LogoURL'],
+        donationURL=row['DonationURL'],
         description=row['Description']
     )
     allCharities.append(individual_charity)
@@ -42,7 +44,7 @@ for index, row in charitiesLoaded.iterrows():
 # allCharities should now hold all charities within the database as objects in the Charity class.
 
 
-def uploadToSheet(name, category, tags, website, logoURL, description):
+def uploadToSheet(name, category, tags, website, logoURL, donationURL, description):
     currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
 
     # Assigns a new ID (if rows are deleted, their IDs won't be replaced)
@@ -59,6 +61,7 @@ def uploadToSheet(name, category, tags, website, logoURL, description):
         'Tags': tags,  # Separated by commas (please)
         'Website': website,
         'LogoURL': logoURL,
+        'DonationURL': donationURL,
         'Description': description
     }
 
