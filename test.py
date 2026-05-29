@@ -11,7 +11,7 @@ import pandas as pd
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 with st.sidebar:
-    st.title("Menu")
+    st.title("MatchMyCause")
     page = st.radio("MENU", ["Home", "My Charities"])
     st.divider()
     st.metric(label="Charities Supported", value="12", delta="3 this week")
@@ -37,7 +37,7 @@ if page == "Home":
     # Display the Feed
     try:
         existing_posts = conn.read(worksheet="Sheet1", ttl=0).dropna(how="all")
-        
+
         if not existing_posts.empty:
             # Display rows in reverse order (newest first)
             for index, row in existing_posts.iloc[::-1].iterrows():
