@@ -16,7 +16,8 @@ import pandas as pd
 
 # Class for all charities
 class Charity:
-    def __init__(self, name, category, status, tags, website, logoURL, description):
+    def __init__(self, ID, name, category, status, tags, website, logoURL, description):
+        self.ID = ID
         self.name = name
         self.category = category
         self.status = status
@@ -38,6 +39,7 @@ for index, row in charitiesLoaded.iterrows():
     ]
 
     individual_charity = Charity(
+        ID=row['ID'],
         name=row['Name'],
         category=row['Category'],
         status=row['Status'],
@@ -52,17 +54,25 @@ for index, row in charitiesLoaded.iterrows():
 
 
 def uploadToSheet(name, category, tags, website, logoURL, description):
+    currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
+
+    # Assigns a new ID (if rows are deleted, their IDs won't be replaced)
+    if currentState.empty or "ID" not in currentState.columns:
+        nextID = 1
+    else:
+        nextID = int(pd.to_numeric(currentState["ID"], errors='coerce').max()) + 1
+
     toUpload = {
+        'ID': nextID,
         'Name': name,
         'Category': category,
         'Status': "Pending",
-        'Tags': tags, # Separated by commas (please)
+        'Tags': tags,  # Separated by commas (please)
         'Website': website,
         'LogoURL': logoURL,
         'Description': description
     }
 
-    currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
     updatedState = pd.concat([currentState, pd.DataFrame([toUpload])], ignore_index=True)
     conn.update(worksheet="Sheet1", data=updatedState)
 
