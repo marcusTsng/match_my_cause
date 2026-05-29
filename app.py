@@ -3,17 +3,6 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
 
-# Possible categories:
-# - Animals
-# - Environment
-# - Inclusion
-# - Education
-# - Health
-# - Poverty
-#
-# Tags will effectively work as our search engine
-
-
 # Class for all charities
 class Charity:
     def __init__(self, ID, name, category, status, tags, website, logoURL, description):
