@@ -31,7 +31,11 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 charitiesLoaded = conn.read(worksheet="Sheet1", ttl=60).dropna(how='all')
 allCharities = []
 for index, row in charitiesLoaded.iterrows():
-    tagList = [tag.strip() for tag in str(row['Tags']).split(',')]
+    tagList = [
+        tag.strip().lower()
+        for tag in str(row['Tags']).split(',')
+        if tag.strip() and str(row['Tags']) != 'nan'
+    ]
 
     individual_charity = Charity(
         name=row['Name'],
@@ -50,7 +54,7 @@ print([charity.name for charity in allCharities])  # Debug
 
 
 # Home page code
-def home_page():
+def homePage():
     st.title("Match My Cause")
     # search = st.text_input("Search for charities")
     # if search:
@@ -61,7 +65,7 @@ def home_page():
     #         pass # Show the charities
 
 # Profile page code
-def profile_page():
+def profilePage():
     st.title("My Profile")
     username = st.text_input("Username:", "DefaultUsernameTest")
     st.text(f"Just for testing: Username is {username}")
@@ -75,6 +79,6 @@ with st.sidebar:
 
 # Calling different pages
 if page == "Home":
-    home_page()
+    homePage()
 elif page == "Profile":
-    profile_page()
+    profilePage()
