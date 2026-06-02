@@ -7,9 +7,11 @@ discoverPage = st.Page("views/discover.py", title="Discover")
 registerPage = st.Page("views/register.py", title="Register")
 profilePage = st.Page("views/charity.py", title="Charity Profile")
 
-page = st.navigation({
-    "Main": [homePage, discoverPage, registerPage],
-    "Hidden": [profilePage]
-})
+page = st.navigation([
+    homePage,
+    discoverPage,
+    registerPage,
+    profilePage
+], position="hidden")
 
-pg.run()
+page.run()
