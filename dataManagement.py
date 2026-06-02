@@ -21,9 +21,10 @@ class Charity:
 
 # Data retrieval from Sheets database
 conn = st.connection("gsheets", type=GSheetsConnection)
-charitiesLoaded = conn.read(worksheet="Sheet1", ttl=60).dropna(how='all')
+@st.cache_data(ttl=60)
 def loadCharities():
     allCharities = []
+    charitiesLoaded = conn.read(worksheet="Sheet1", ttl=60).dropna(how='all')
     for index, row in charitiesLoaded.iterrows():
         tagList = [
             tag.strip().lower()
