@@ -5,11 +5,13 @@ import pandas as pd
 
 # Class for all charities
 class Charity:
-    def __init__(self, ID, name, category, status, tags, website, logoURL, donationURL, description):
+    def __init__(self, ID, name, category, status, visits, donations, tags, website, logoURL, donationURL, description):
         self.ID = ID
         self.name = name
         self.category = category
         self.status = status
+        self.visits = visits
+        self.donations = donations
         self.tags = tags
         self.website = website
         self.logoURL = logoURL
@@ -33,6 +35,8 @@ for index, row in charitiesLoaded.iterrows():
         name=row['Name'],
         category=row['Category'],
         status=row['Status'],
+        visits=row['Visits'],
+        donations=row['Donations'],
         tags=tagList,
         website=row['Website'],
         logoURL=row['LogoURL'],
@@ -58,6 +62,8 @@ def uploadToSheet(name, category, tags, website, logoURL, donationURL, descripti
         'Name': name,
         'Category': category,
         'Status': "Pending",
+        'Visits': 0,
+        'Donations': 0,
         'Tags': tags,  # Separated by commas (please)
         'Website': website,
         'LogoURL': logoURL,
