@@ -1,3 +1,5 @@
-.st-key-blueContainer {
+/* Use the format div[class*=".st-key-..._"] to reference all widgets with a key containing '..._' */
+
+div[class*=".st-key-blueContainer_"] {
     background: #3677ff
 }
