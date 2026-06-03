@@ -1,4 +1,7 @@
-/* Use the format div[class*=".st-key-..._"] to reference all widgets with a key containing '..._' */
+/* Use the format
+div[class*=".st-key-..._"]
+to reference all widgets with a key containing '..._', eg
+key='blueContainer_1' */
 
 div[class*=".st-key-blueContainer_"] {
     background: #3677ff
