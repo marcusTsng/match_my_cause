@@ -76,3 +76,10 @@ def uploadToSheet(name, category, tags, website, logoURL, donationURL, descripti
     conn.update(worksheet="Sheet1", data=updatedState)
 
     st.cache_data.clear() # Ensures the website updates after uploading
+
+
+def injectCSS():
+    # Reads styles.css and injects styles into the main app; use key=... to select a style
+    with open("styles.css", "r") as styles:
+        css = styles.read()
+    st.html(f"<style>{css}</style>")

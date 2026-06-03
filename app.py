@@ -1,5 +1,7 @@
 import streamlit as st
 
+from dataManagement import injectCSS
+
 st.set_page_config(page_title="MatchMyCause")
 
 homePage = st.Page("views/home.py", title="Home", default=True)
@@ -13,5 +15,7 @@ page = st.navigation([
     registerPage,
     profilePage
 ], position="hidden")
+
+injectCSS()
 
 page.run()
