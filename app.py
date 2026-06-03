@@ -2,7 +2,7 @@ import streamlit as st
 
 from dataManagement import injectCSS
 
-st.set_page_config(page_title="MatchMyCause")
+st.set_page_config(page_title="MatchMyCause", layout='wide')
 
 homePage = st.Page("views/home.py", title="Home", default=True)
 discoverPage = st.Page("views/discover.py", title="Discover")
