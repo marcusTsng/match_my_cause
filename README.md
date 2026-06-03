@@ -1,12 +1,17 @@
-# match_my_cause
+# Match My Cause
 
-REMEMBER TO UPDATE THE secrets.toml FILE OTHERWISE DATABASE WONT WORK
+A Streamlit app to register and view charities, with categories and tags.
 
-RUN: 
+To install, run
 
+```
 pip install -r requirements.txt
+```
 
-streamlit run /Users/marcustsang/Desktop/match_my_cause/test.py
-    (for example: streamlit run /Users/marcustsang/Desktop/match_my_cause/test.py)
+then use
 
-https://www.youtube.com/watch?v=d7fnzDQ5qM8
+```
+streamlit run ~/match_my_cause/app.py
+```
+
+Enjoy!
