@@ -1,3 +1,7 @@
 import streamlit as st
+import dataManagement
 
-'''This is the homepage'''
+loadedCharities = dataManagement.loadCharities()
+
+with st.container(key="blueContainer_1"):
+    st.write("test")
