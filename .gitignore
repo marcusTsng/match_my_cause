@@ -1,6 +1,5 @@
 # --- DO NOT REMOVE !!! Streamlit Secrets ---
-.streamlit/
-secrets.toml
+.streamlit/secrets.toml
 
 # --- Python Clutter ---
 .matchmycause/
@@ -12,6 +11,3 @@ __pycache__/
 .DS_Store
 .idea
 
-# --- Template Reminder ---
-!secrets.toml.example
-.streamlit/secrets.toml
