@@ -1,5 +1,7 @@
 import streamlit as st
-from views.home import loadedCharities
+import dataManagement
+
+loadedCharities = dataManagement.loadCharities()
 
 
 def searchFunction(query):
@@ -18,16 +20,15 @@ def searchFunction(query):
     return IDsFoundTitle + IDsFoundTags + IDsFoundDesc
 
 # Search bar
-search_contents = ""
+if "searchBarData" in st.session_state:
+    searchContents = st.session_state["searchBarData"]
+    st.session_state["searchBarData"] = ""
+else:
+    searchContents = ""
 
-if "search_bar_data" in st.session_state:
-    search_contents = st.session_state["search_bar_data"]
-else: 
-    st.session_state["search_bar_data"] = ""
-
-searchTerm = st.text_input("Search for charities...", search_contents)
-if searchTerm or search_contents:
-    charities = searchFunction(searchTerm.lower().split(" "))
+searchQuery = st.text_input("", searchContents, placeholder="Search for charities")
+if searchQuery or searchContents:
+    charities = searchFunction(searchQuery.lower().split(" "))
     if len(charities) > 0:
         for c in charities:
             st.text(c)
