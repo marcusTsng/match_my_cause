@@ -1,7 +1,10 @@
 [theme]
-
 primaryColor = "#2c66e1"
-
 backgroundColor = "#e6eaf2"
-
 textColor = "#1e293b"
+
+[client]
+toolbarMode = "viewer"
+
+[ui]
+hideTopBar = true

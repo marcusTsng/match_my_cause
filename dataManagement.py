@@ -22,7 +22,7 @@ class Charity:
 
 # Data retrieval from Sheets database
 conn = st.connection("gsheets", type=GSheetsConnection)
-@st.cache_data(ttl=60)
+@st.cache_data(ttl=120, show_spinner=False)
 def loadCharities():
     allCharities = []
     charitiesLoaded = conn.read(worksheet="Sheet1", ttl=60).dropna(how='all')
