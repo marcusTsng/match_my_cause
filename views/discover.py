@@ -12,7 +12,7 @@ def searchFunction(query):
         for searchTerm in query:
             if searchTerm in charity.name.lower():
                 IDsFoundTitle.append(charity.ID)
-            elif searchTerm in [tag.lower() for tag in charity.tags]:
+            elif any(searchTerm in tag for tag in charity.tags):
                 IDsFoundTags.append(charity.ID)
             elif searchTerm in charity.description.lower():
                 IDsFoundDesc.append(charity.ID)
