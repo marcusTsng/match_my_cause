@@ -1,7 +1,4 @@
-/* Use the format
-div[class*=".st-key-..._"]
-to reference all widgets with a key containing '..._', eg
-key='blueContainer_1' */
+/* Use .st-key-... to refer to widget with key ... */
 
 /* This removes the invisible header from the top of the page */
 [data-testid="stHeader"] {
@@ -13,6 +10,14 @@ key='blueContainer_1' */
     padding: 0 !important;
 }
 
-div[class*="st-key-blueContainer_"] {
-    background: #3677ff
+.st-key-logo {
+    background: transparent;
+    position: fixed;
+    z-index: 99999;
+}
+
+.st-key-logoCard {
+    background: #3677ff;
+    position: relative;
+    top: -1rem;
 }
