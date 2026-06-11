@@ -15,7 +15,7 @@ page = st.navigation([
     profilePage
 ], position="hidden")
 
-# with st.sidebar:
+
 with st.container(key="logo"):
     homepageURL = "http://localhost:8501" # Replace with the actual link at launch
     try:

@@ -4,7 +4,7 @@ import dataManagement
 loadedCharities = dataManagement.loadCharities()
 
 
-with st.container(key="logoCard"):
+with st.container(key="logoBar"):
     st.image(
         "images/MatchMyCause Text White.svg"
     )

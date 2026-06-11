@@ -11,12 +11,18 @@
 }
 
 .st-key-logo {
-    background: transparent;
+    background: radial-gradient(circle, #3677ffff, transparent 60%), center, no-repeat;
     position: fixed;
+    width: 80px;
+    border-radius: 40px;
     z-index: 99999;
 }
 
-.st-key-logoCard {
+.st-key-logo:hover {
+    background: radial-gradient(circle, #3677ffff, transparent 70%), center, no-repeat;
+}
+
+.st-key-logoBar {
     background: #3677ff;
     position: relative;
     top: -1rem;
