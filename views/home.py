@@ -6,8 +6,7 @@ loadedCharities = dataManagement.loadCharities()
 
 with st.container(key="logoCard"):
     st.image(
-        "images/MatchMyCause Text White.svg",
-        use_container_width=True
+        "images/MatchMyCause Text White.svg"
     )
 
 
