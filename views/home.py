@@ -6,7 +6,12 @@ loadedCharities = dataManagement.loadCharities()
 
 with st.container(key="logoBar"):
     st.image(
+<<<<<<< Updated upstream
         "images/MatchMyCause Text White.svg"
+=======
+        "images/MatchMyCause Text White.svg",
+        width="stretch"
+>>>>>>> Stashed changes
     )
 
 
