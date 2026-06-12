@@ -78,6 +78,23 @@ def uploadToSheet(name, category, tags, website, logoURL, donationURL, descripti
 
     st.cache_data.clear() # Ensures the website updates after uploading
 
+def truncateString(text, maxLength):
+    if len(text) <= maxLength:
+        return text
+
+    truncated = text[:maxLength]
+
+    if text[maxLength] == ' ':
+        return truncated.rstrip() + "..."
+
+    words = truncated.split(' ')
+    if len(words) > 1:
+        words.pop()
+        return ' '.join(words).rstrip() + "..."
+
+    return truncated.rstrip() + "..."
+    
+
 
 def injectCSS():
     # Reads styles.css and injects styles into the main app; use key=... to select a style
