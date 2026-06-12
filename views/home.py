@@ -21,9 +21,11 @@ with st.container(key="trendingCarousel"):
         id = int(charity.ID)
         htmlCarousel += (
         f'<div class="charityCard">'
+        f'<div class="cardBody">'
         f'<span class="cardTag">{charity.category}</span>'
         f'<h4 class="cardTitle">{charity.name}</h4>'
         f'<p class="cardDesc">{truncateString(charity.description,100)}</p>'
+        f'</div>'
         f'<a href="/charity?id={id}" target="_self" class="cardLinkButton">Learn More</a>'
         f'</div>'
         )

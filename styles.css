@@ -62,6 +62,12 @@
     justify-content: space-between;
 }
 
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
 
 .st-key-aboutUs {
     width: 90%;
