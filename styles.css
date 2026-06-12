@@ -27,3 +27,43 @@
     position: relative;
     top: -1rem;
 }
+
+.charityFlexRow {
+    display: flex !important;
+    flex-direction: row;
+
+    justify-content: safe center;
+    align-items: stretch;
+    gap: 20px;
+
+    padding: 15px 5px;
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+@media (max-width: 1200px) {
+    .charityFlexRow {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+    }
+}
+
+.charityCard {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.st-key-aboutUs {
+    width: 90%;
+    margin: 0 auto;
+}
