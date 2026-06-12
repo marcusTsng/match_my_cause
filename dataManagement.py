@@ -1,4 +1,3 @@
-
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
@@ -94,7 +93,6 @@ def truncateString(text, maxLength):
 
     return truncated.rstrip() + "..."
     
-
 
 def injectCSS():
     # Reads styles.css and injects styles into the main app; use key=... to select a style
