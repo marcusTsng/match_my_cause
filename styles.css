@@ -23,9 +23,18 @@
 }
 
 .st-key-logoBar {
+    z-index: 999;
     background: #3677ff;
     position: relative;
     top: -1rem;
+}
+
+.st-key-trendingCarousel {
+    background: #2c66e1;
+    color: white;
+    padding: 30px;
+    position: relative;
+    top: -3rem;
 }
 
 .charityFlexRow {
@@ -44,6 +53,8 @@
 
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
+
+    color: #1e293b;
 }
 
 @media (max-width: 1200px) {
@@ -59,6 +70,23 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cardImage {
+    width: 100%;
+    height: 140px;
+    object-fit: cover !important;
+}
+
+.cardContent {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -67,6 +95,11 @@
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
+    padding: 15px;
+}
+
+.learnMore {
+    padding: 15px;
 }
 
 .st-key-aboutUs {

@@ -13,7 +13,7 @@ with st.container(key="logoBar"):
 
 
 with st.container(key="trendingCarousel"):
-    st.markdown("Trending Charities")
+    st.header("Trending Charities")
 
     htmlCarousel = '<div class="charityFlexRow">'
 
@@ -21,12 +21,17 @@ with st.container(key="trendingCarousel"):
         id = int(charity.ID)
         htmlCarousel += (
         f'<div class="charityCard">'
+        f'<img src="{charity.logoURL}" class="cardImage" alt="{charity.name}">'
+        f'<div class="cardContent">'
         f'<div class="cardBody">'
         f'<span class="cardTag">{charity.category}</span>'
         f'<h4 class="cardTitle">{charity.name}</h4>'
         f'<p class="cardDesc">{truncateString(charity.description,100)}</p>'
         f'</div>'
+        f'<div class="learnMore">'
         f'<a href="/charity?id={id}" target="_self" class="cardLinkButton">Learn More</a>'
+        f'</div>'
+        f'</div>'
         f'</div>'
         )
 
