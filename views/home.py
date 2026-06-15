@@ -6,14 +6,19 @@ loadedCharities = dataManagement.loadCharities()
 
 
 with st.container(key="logoBar"):
-    st.image(
-        "images/MatchMyCause Text White.svg",
-        width="content"
-    )
+    barColumns = st.columns(2)
+    with barColumns[0]:
+        st.image(
+            "images/MatchMyCause Text White.svg",
+            width="content"
+        )
+    with barColumns[1]:
+        if st.button(":material/search: Discover", key="searchButton", type="tertiary"):
+            st.switch_page("views/discover.py")
 
 
 with st.container(key="trendingCarousel"):
-    st.header("Trending Charities")
+    st.header("Trending Charities", text_alignment="center")
 
     htmlCarousel = '<div class="charityFlexRow">'
 
@@ -43,8 +48,8 @@ with st.container(key="trendingCarousel"):
 # Search bar
 if "searchBarData" not in st.session_state:
     st.session_state["searchBarData"] = ""
-with st.container(key="searchBar"):
-    searchTerm = st.text_input("", placeholder="Search for charities...")
+with st.container(key="searchBarContainer"):
+    searchTerm = st.text_input("", icon=":material/search:", placeholder="Search for charities...", key="searchBar")
     if searchTerm:
         st.session_state["searchBarData"] = searchTerm
         st.switch_page("views/discover.py")
