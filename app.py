@@ -17,12 +17,11 @@ page = st.navigation([
 
 
 with st.container(key="logo"):
-    homepageURL = "http://localhost:8501" # Replace with the actual link at launch
     try:
         with open("images/MatchMyCause Logo.svg", "r") as f:
             svgCode = f.read()
         st.markdown(
-            f'<a href="{homepageURL}" target="_self">'
+            f'<a href="/" target="_top">'
             f'  {svgCode}'
             f'</a>',
             unsafe_allow_html=True,
