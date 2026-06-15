@@ -50,7 +50,7 @@
     background: rgba(200, 200, 200, 15%);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 650px) {
     div[data-testid="stImage"]:nth-of-type(2) {
         display: none;
     }
