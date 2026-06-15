@@ -29,7 +29,7 @@ with st.container(key="trendingCarousel"):
         f'<p class="cardDesc">{truncateString(charity.description,100)}</p>'
         f'</div>'
         f'<div class="learnMore">'
-        f'<a href="/charity?id={id}" target="_self" class="cardLinkButton">Learn More</a>'
+        f'<a href="/charity?id={id}" target="_self" class="cardLink">Learn More</a>'
         f'</div>'
         f'</div>'
         f'</div>'
