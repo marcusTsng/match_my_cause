@@ -1,8 +1,14 @@
 import streamlit as st
 import dataManagement
-from dataManagement import truncateString
 
 loadedCharities = dataManagement.loadCharities()
+
+visits = []
+for listID in range(len(loadedCharities)):
+    visits.append([listID, loadedCharities[listID].visits])
+
+numTrending = 3
+trendingCharities = sorted(visits, key=lambda x: x[1], reverse=True)[:numTrending]
 
 
 with st.container(key="logoBar"):
@@ -22,7 +28,8 @@ with st.container(key="trendingCarousel"):
 
     htmlCarousel = '<div class="charityFlexRow">'
 
-    for charity in loadedCharities:
+    for trending in trendingCharities:
+        charity = loadedCharities[trending[0]]
         id = int(charity.ID)
         htmlCarousel += (
         f'<div class="charityCard">'
@@ -31,7 +38,7 @@ with st.container(key="trendingCarousel"):
         f'<div class="cardBody">'
         f'<span class="cardTag">{charity.category}</span>'
         f'<h4 class="cardTitle">{charity.name}</h4>'
-        f'<p class="cardDesc">{truncateString(charity.description,100)}</p>'
+        f'<p class="cardDesc">{dataManagement.truncateString(charity.description,100)}</p>'
         f'</div>'
         f'<div class="learnMore">'
         f'<a href="/charity?id={id}" target="_self" class="cardLink">Learn More</a>'
