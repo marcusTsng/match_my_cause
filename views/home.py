@@ -58,22 +58,22 @@ with st.container(key="searchBarContainer"):
 with st.container(key="aboutUs", border=True):
     st.title("About Us")
 
-    aboutColumns1 = st.columns([6,4])
+    aboutColumns1 = st.columns([6,4], gap="medium")
     with aboutColumns1[0]:
         st.header("Interesting things")
         st.write("This is something interesting about us")
     with aboutColumns1[1]:
         st.space("xxsmall")
         with st.container(border=True, key="aboutUsImage1"):
-            st.write("This is an image")
+            st.write("This is an image with a fixed aspect ratio of 4:3")
 
     st.divider()
 
-    aboutColumns2 = st.columns([2, 8])
+    aboutColumns2 = st.columns([2, 8], gap="medium")
     with aboutColumns2[0]:
         st.space("xxsmall")
         with st.container(border=True, key="aboutUsImage2"):
-            st.write("This is a portrait")
+            st.write("This is a portrait, 3:4")
     with aboutColumns2[1]:
         st.header("Author 1")
         st.write("This is something about one author")
@@ -81,13 +81,13 @@ with st.container(key="aboutUs", border=True):
 
     st.divider()
 
-    aboutColumns3 = st.columns([8, 2])
+    aboutColumns3 = st.columns([8, 2], gap="medium")
     with aboutColumns3[0]:
         st.header("Author 2")
         st.write("This is something about another author")
     with aboutColumns3[1]:
         st.space("xxsmall")
         with st.container(border=True, key="aboutUsImage3"):
-            st.write("This is a portrait")
+            st.write("This is a portrait, 3:4")
 
     st.space("xsmall")
