@@ -58,6 +58,11 @@
     .st-key-searchButton {
         margin-right: 10px;
     }
+
+    .st-key-searchBox {
+        width: 70% !important;
+        margin: 10px 10px 10px auto !important;
+    }
 }
 
 .st-key-registerContainer {
@@ -236,7 +241,6 @@
 }
 
 .st-key-searchBox {
-    background: lightblue;
     width: 90%;
     margin: 10px auto;
 }
@@ -244,6 +248,41 @@
 .st-key-searchResults {
     width: 95%;
     margin: 10px auto;
+    position: relative;
+    top: -2rem;
+}
+
+.st-key-noResults {
+    aspect-ratio: 3/1 !important;
+    background: lightgrey;
+    width: 95%;
+    margin: 10px auto;
+    position: relative;
+    top: -2rem;
+    padding: 20px;
+}
+
+.st-key-noResultsBoth {
+    width: fit-content;
+    margin: auto;
+}
+
+.st-key-noResultsIcon {
+    width: fit-content;
+    margin: auto auto 0 auto;
+}
+
+.st-key-noResultsIcon p {
+    font-size: 60px;
+}
+
+.st-key-noResultsMessage {
+    width: fit-content;
+    margin: 0 auto auto auto;
+}
+
+.st-key-noResultsMessage p {
+    font-size: 30px;
 }
 
 div[class*="st-key-foundCharity"] {
