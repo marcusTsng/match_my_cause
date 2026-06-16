@@ -98,3 +98,7 @@ with st.container(key="aboutUs", border=True):
             st.write("This is a portrait, 3:4")
 
     st.space("xsmall")
+
+with st.container(key="registerContainer"):
+    if st.button(":material/add:", key="registerButton", type="tertiary", help="Register!"):
+        st.switch_page("views/register.py")
