@@ -18,7 +18,7 @@ with st.container(key="logoBar"):
 
 
 with st.container(key="trendingCarousel"):
-    st.header("Trending Charities", text_alignment="center")
+    st.markdown('<h2 class="trendingHeader">Trending Charities</h2>', unsafe_allow_html=True)
 
     htmlCarousel = '<div class="charityFlexRow">'
 
