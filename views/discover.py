@@ -1,39 +1,30 @@
 import streamlit as st
 import dataManagement
 
-from dataManagement import Charity
-
 loadedCharities = dataManagement.loadCharities()
 
-class Card:
-    def __init__(self, c : Charity):
-        self.id = c.ID
-        self.name = c.name
-        self.category = c.category
-        self.status = c.status
-        self.visits = c.visits
-        self.donations = c.donations
-        self.logoUrl = c.logoURL
-        self.desc = c.description
-
-    def display(self):
-        st.title(self.name)
-        st.text(self.desc)
 
 def searchFunction(query):
     IDsFoundTitle = []
     IDsFoundTags = []
     IDsFoundDesc = []
-    for charity in loadedCharities:
+    for searched in loadedCharities:
         for searchTerm in query:
-            if searchTerm in charity.name.lower():
-                IDsFoundTitle.append(charity.ID)
-            elif any(searchTerm in tag for tag in charity.tags):
-                IDsFoundTags.append(charity.ID)
-            elif searchTerm in charity.description.lower():
-                IDsFoundDesc.append(charity.ID)
+            if searchTerm in searched.name.lower():
+                IDsFoundTitle.append(searched.ID)
+            elif any(searchTerm in tag for tag in searched.tags):
+                IDsFoundTags.append(searched.ID)
+            elif searchTerm in searched.description.lower():
+                IDsFoundDesc.append(searched.ID)
 
     return IDsFoundTitle + IDsFoundTags + IDsFoundDesc
+
+with st.container(key="logoBar"):
+    st.image(
+        "images/MatchMyCause Discover.svg",
+        width="content"
+    )
+
 
 # Search bar
 if "searchBarData" in st.session_state:
@@ -42,14 +33,26 @@ if "searchBarData" in st.session_state:
 else:
     searchContents = ""
 
-searchQuery = st.text_input("", searchContents, placeholder="Search for charities")
-if searchQuery or searchContents:
-    charities = searchFunction(searchQuery.lower().split(" "))
-    if len(charities) > 0:
-        for c in charities:
-            charity : Charity = loadedCharities[int(c) - 1]
-            Card(charity).display()
-            # st.text(charity.name)
+with st.container(key="searchContainer", height=150):
+    searchQuery = st.text_input("", searchContents, placeholder="Search names, tags, categories...", key="searchBox")
+
+with st.container(key="searchResults"):
+    if searchQuery or searchContents:
+        charities = searchFunction(searchQuery.lower().split(" "))
+        if len(charities) > 0:
+            charitiesToShow = []
+            for loadCharity in loadedCharities:
+                if loadCharity.ID in charities:
+                    charitiesToShow.append(loadCharity)
+
+            containerID = 1
+            for charity in charitiesToShow:
+                with st.container(key=f"foundCharity{containerID}"):
+                    st.write(charity.name)
+                containerID += 1
+        else:
+            st.write(":material/search_off: No charities found")
     else:
-        st.text("No charities found")
+        st.write("Search anything!")
+
 

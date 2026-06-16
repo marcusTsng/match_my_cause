@@ -228,3 +228,24 @@
 .st-key-aboutUsImage3 {
     aspect-ratio: 3/4;
 }
+
+.st-key-searchContainer {
+    background: #2c66e1;
+    position: relative;
+    top: -3rem;
+}
+
+.st-key-searchBox {
+    background: lightblue;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.st-key-searchResults {
+    width: 95%;
+    margin: 10px auto;
+}
+
+div[class*="st-key-foundCharity"] {
+    background: lightblue;
+}
