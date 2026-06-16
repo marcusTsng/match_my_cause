@@ -166,6 +166,22 @@
 }
 
 .st-key-aboutUs {
+    background: #e1e8f8;
     width: 90%;
     margin: 0 auto;
+    position: relative;
+    top: -2rem;
+    padding: 15px 40px;
+}
+
+.st-key-aboutUsImage1 {
+    aspect-ratio: 4/3;
+}
+
+.st-key-aboutUsImage2 {
+    aspect-ratio: 3/4;
+}
+
+.st-key-aboutUsImage3 {
+    aspect-ratio: 3/4;
 }
