@@ -58,7 +58,9 @@ if searchQuery or searchContents:
                     with displayColumns[1]:
                         st.subheader(charity.name)
                         st.write(charity.description)
-
+                    with displayColumns[2]:
+                        if st.button("Learn More", key=f"discoverLearnMore{containerID}"):
+                            st.switch_page("views/charity.py", query_params={"id": int(charity.ID)})
                 containerID += 1
     else:
         with st.container(key="noResults"):

@@ -12,6 +12,10 @@
     padding: 0 !important;
 }
 
+button[title="View fullscreen"] {
+    visibility: hidden;
+}
+
 .st-key-logo {
     background: radial-gradient(circle, #3677ffff, transparent 60%), center, no-repeat;
     position: fixed;
