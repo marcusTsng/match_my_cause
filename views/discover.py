@@ -59,8 +59,10 @@ if searchQuery or searchContents:
                 with st.container(key="noResultsIcon"):
                     st.write(":material/search_off:")
                 with st.container(key="noResultsMessage"):
-                    st.write("Search anything!")
+                    st.write("No charities found")
 else:
         with st.container(key="noResults"):
+            with st.container(key="noResultsIcon"):
+                st.write(":material/search:")
             with st.container(key="noResultsMessage"):
                 st.write("Search anything!")

@@ -255,13 +255,18 @@
 }
 
 .st-key-noResults {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     aspect-ratio: 3/1 !important;
+    min-height: 300px;
     background: lightgrey;
     width: 95%;
     margin: 10px auto;
     position: relative;
     top: -2rem;
     padding: 20px;
+    border-radius: 20px;
 }
 
 .st-key-noResultsBoth {
@@ -271,7 +276,7 @@
 
 .st-key-noResultsIcon {
     width: fit-content;
-    margin: auto auto 0 auto;
+    margin: 0 auto;
 }
 
 .st-key-noResultsIcon p {
@@ -280,7 +285,7 @@
 
 .st-key-noResultsMessage {
     width: fit-content;
-    margin: 0 auto auto auto;
+    margin: 0 auto;
 }
 
 .st-key-noResultsMessage p {
