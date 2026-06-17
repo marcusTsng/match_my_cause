@@ -18,10 +18,11 @@
     width: 80px;
     border-radius: 40px;
     z-index: 99999;
+    transition: all 0.3s ease;
 }
 
 .st-key-logo:hover {
-    background: radial-gradient(circle, #3677ffff, transparent 70%), center, no-repeat;
+    transform: scale(1.05);
 }
 
 .st-key-logoBar {
@@ -51,7 +52,7 @@
 }
 
 @media (max-width: 650px) {
-    div[data-testid="stImage"]:nth-of-type(2) {
+    .st-key-logoBar div[data-testid="stImage"]:nth-of-type(2) {
         display: none;
     }
 
@@ -62,6 +63,10 @@
     .st-key-searchBox {
         width: 70% !important;
         margin: 10px 10px 10px auto !important;
+    }
+
+    div[class*="st-key-charityImage"] {
+        margin: 0 auto;
     }
 }
 
@@ -254,6 +259,43 @@
     top: -2rem;
 }
 
+
+div[class*="st-key-foundCharity"] {
+    background: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+div[class*="st-key-foundCharity"]:hover {
+    transform: scale(1.01);
+}
+
+
+div[class*="st-key-charityImage"] div[data-testid="stImage"] {
+    width: 100% !important;
+    aspect-ratio: 7/4 !important;
+    overflow: hidden;
+    border-radius: 15px !important;
+}
+
+div[class*="st-key-charityImage"] div[data-testid="stImage"] img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+div[class*="st-key-charityImage"],
+div[class*="st-key-charityImage"] div,
+div[class*="st-key-charityImage"] div[data-testid="stImage"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+}
+
+
 .st-key-noResults {
     display: flex;
     align-items: center;
@@ -290,8 +332,4 @@
 
 .st-key-noResultsMessage p {
     font-size: 30px;
-}
-
-div[class*="st-key-foundCharity"] {
-    background: lightblue;
 }

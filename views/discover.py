@@ -51,7 +51,13 @@ if searchQuery or searchContents:
             containerID = 1
             for charity in charitiesToShow:
                 with st.container(key=f"foundCharity{containerID}"):
-                    st.write(charity.name)
+                    displayColumns = st.columns([3,7])
+                    with displayColumns[0]:
+                        with st.container(key=f"charityImage{containerID}"):
+                            st.image(charity.logoURL, width="stretch")
+                    with displayColumns[1]:
+                        st.write("This is a description")
+
                 containerID += 1
     else:
         with st.container(key="noResults"):
