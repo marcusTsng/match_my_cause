@@ -76,22 +76,6 @@ def uploadToSheet(name, category, tags, website, logoURL, donationURL, descripti
     conn.update(worksheet="Sheet1", data=updatedState)
 
     st.cache_data.clear() # Ensures the website updates after uploading
-
-def truncateString(text, maxLength):
-    if len(text) <= maxLength:
-        return text
-
-    truncated = text[:maxLength]
-
-    if text[maxLength] == ' ':
-        return truncated.rstrip() + "..."
-
-    words = truncated.split(' ')
-    if len(words) > 1:
-        words.pop()
-        return ' '.join(words).rstrip() + "..."
-
-    return truncated.rstrip() + "..."
     
 
 def injectCSS():
