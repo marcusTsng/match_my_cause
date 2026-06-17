@@ -185,6 +185,13 @@
     margin-top: -5px;
 }
 
+.cardDesc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
 .learnMore {
     border-top: 2px solid #e6eaf2;
     height: 50px;

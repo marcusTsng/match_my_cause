@@ -38,7 +38,7 @@ with st.container(key="trendingCarousel"):
         f'<div class="cardBody">'
         f'<span class="cardTag">{charity.category}</span>'
         f'<h4 class="cardTitle">{charity.name}</h4>'
-        f'<p class="cardDesc">{dataManagement.truncateString(charity.description,100)}</p>'
+        f'<p class="cardDesc">{charity.description}</p>'
         f'</div>'
         f'<div class="learnMore">'
         f'<a href="/charity?id={id}" target="_self" class="cardLink">Learn More</a>'
