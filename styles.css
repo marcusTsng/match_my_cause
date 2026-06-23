@@ -12,7 +12,7 @@
     padding: 0 !important;
 }
 
-button[title="View fullscreen"] {
+div[data-testid="stElementToolbar"] {
     visibility: hidden;
 }
 
@@ -279,6 +279,13 @@ div[class*="st-key-foundCharity"] {
     transition: all 0.3s ease;
 }
 
+[data-testid="stColumn"]:nth-child(3) [data-testid="stVerticalBlock"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
 div[class*="st-key-foundCharity"]:hover {
     transform: scale(1.01);
 }
@@ -306,6 +313,106 @@ div[class*="st-key-charityImage"] div[data-testid="stImage"] {
     min-width: 100% !important;
 }
 
+div[class*="st-key-charityInfo"] > *:nth-child(2) {
+    margin-top: -25px;
+}
+
+div[class*="st-key-charityDesc"] p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+div[class*="st-key-discoverLearnMoreLeft"] {
+    display: none;
+}
+
+div[class*="st-key-discoverLearnMoreRight"] {
+    display: block;
+}
+
+div[class*="st-key-discoverDonate"] {
+    display: block;
+}
+
+div[class*="st-key-discoverLearnMore"] {
+    width: 100%;
+    border-radius: 10px;
+    background: #2c66e1;
+    transition: all 0.3s ease;
+    padding: 3px 10px;
+    color: white;
+}
+
+div[class*="st-key-discoverLearnMore"] button p {
+    font-weight: bold;
+}
+
+div[class*="st-key-discoverLearnMore"]:hover {
+    background: #3677ff;
+}
+
+div[class*="st-key-discoverDonate"] {
+    width: 100% !important;
+    margin-top: -5px;
+}
+
+div[class*="st-key-discoverDonate"] a {
+    border-radius: 10px;
+    background: lightgrey;
+    border: 2px solid darkgrey;
+    transition: all 0.3s ease !important;
+    padding: 3px 10px;
+    color: #444444 !important;
+}
+
+div[class*="st-key-discoverDonate"] a p {
+    font-weight: bold;
+}
+
+div[class*="st-key-discoverDonate"]:hover a {
+    background: darkgrey;
+}
+
+
+@media (min-width: 640px) and (max-width: 900px) {
+    div[class*="st-key-discoverLearnMoreRight"] {
+        display: none;
+    }
+
+    div[class*="st-key-discoverDonate"] {
+        display: none;
+    }
+
+    div[class*="st-key-discoverLearnMoreLeft"] {
+        display: block;
+    }
+}
+
+@media (min-width: 1200px) {
+    div[class*="st-key-charityDesc"] p {
+        -webkit-line-clamp: 4;
+    }
+}
+
+@media (min-width: 1400px) {
+    div[class*="st-key-charityDesc"] p {
+        -webkit-line-clamp: 5;
+    }
+}
+
+@media (min-width: 1600px) {
+    div[class*="st-key-charityDesc"] p {
+        -webkit-line-clamp: 6;
+    }
+}
+
+@media (max-width: 640px) {
+    div[class*="st-key-charityDesc"] p {
+        -webkit-line-clamp: 6;
+    }
+}
 
 .st-key-noResults {
     display: flex;

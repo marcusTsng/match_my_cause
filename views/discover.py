@@ -55,12 +55,20 @@ if searchQuery or searchContents:
                     with displayColumns[0]:
                         with st.container(key=f"charityImage{containerID}"):
                             st.image(charity.logoURL, width="stretch")
-                    with displayColumns[1]:
-                        st.subheader(charity.name)
-                        st.write(charity.description)
-                    with displayColumns[2]:
-                        if st.button("Learn More", key=f"discoverLearnMore{containerID}"):
+                        if st.button("Learn More", key=f"discoverLearnMoreLeft{containerID}", type="tertiary"):
                             st.switch_page("views/charity.py", query_params={"id": int(charity.ID)})
+
+                    with displayColumns[1]:
+                        with st.container(key=f"charityInfo{containerID}"):
+                            st.markdown(charity.category)
+                            st.subheader(charity.name)
+                            with st.container(key=f"charityDesc{containerID}"):
+                                st.write(charity.description)
+
+                    with displayColumns[2]:
+                        if st.button("Learn More", key=f"discoverLearnMoreRight{containerID}", type="tertiary"):
+                            st.switch_page("views/charity.py", query_params={"id": int(charity.ID)})
+                        st.link_button("Donate", charity.donationURL, key=f"discoverDonate{containerID}", type="tertiary")
                 containerID += 1
     else:
         with st.container(key="noResults"):
