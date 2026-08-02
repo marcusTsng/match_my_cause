@@ -5,13 +5,12 @@ import pandas as pd
 
 # Class for all charities
 class Charity:
-    def __init__(self, ID, name, category, status, visits, donations, tags, website, logoURL, donationURL, description):
+    def __init__(self, ID, name, category, status, visits, tags, website, logoURL, donationURL, description):
         self.ID = ID
         self.name = name
         self.category = category
         self.status = status
         self.visits = visits
-        self.donations = donations
         self.tags = tags
         self.website = website
         self.logoURL = logoURL
@@ -38,7 +37,6 @@ def loadCharities():
             category=row['Category'],
             status=row['Status'],
             visits=row['Visits'],
-            donations=row['Donations'],
             tags=tagList,
             website=row['Website'],
             logoURL=row['LogoURL'],
@@ -64,7 +62,6 @@ def uploadToSheet(name, category, tags, website, logoURL, donationURL, descripti
         'Category': category,
         'Status': "Pending",
         'Visits': 0,
-        'Donations': 0,
         'Tags': tags,  # Separated by commas (please)
         'Website': website,
         'LogoURL': logoURL,
@@ -83,3 +80,16 @@ def injectCSS():
     with open("styles.css", "r") as styles:
         css = styles.read()
     st.html(f"<style>{css}</style>")
+
+
+def charityVisited(charityID):
+    # Adds 1 to the visit count of the requested charity
+    currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
+
+    if not currentState.empty and "ID" in currentState.columns:
+        mask = currentState['ID'] == charityID
+        if mask.any():
+            currentState.loc[mask, 'Visits'] = pd.to_numeric(currentState.loc[mask, 'Visits'], errors='coerce').fillna(
+                0) + 1
+
+            conn.update(worksheet="Sheet1", data=currentState)
