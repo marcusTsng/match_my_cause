@@ -376,7 +376,7 @@ div[class*="st-key-discoverDonate"]:hover a {
 }
 
 
-@media (min-width: 640px) and (max-width: 900px) {
+@media (min-width: 640px) and (max-width: 1050px) {
     div[class*="st-key-discoverLearnMoreRight"] {
         display: none;
     }
