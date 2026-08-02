@@ -82,6 +82,7 @@ def injectCSS():
     st.html(f"<style>{css}</style>")
 
 
+@st.cache_data(ttl="1h", show_spinner=False) # Limits each user to one visit per charity per hour
 def charityVisited(charityID):
     # Adds 1 to the visit count of the requested charity
     currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
