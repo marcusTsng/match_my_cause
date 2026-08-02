@@ -455,3 +455,44 @@ div[class*="st-key-discoverDonate"]:hover a {
 .st-key-noResultsMessage p {
     font-size: 30px;
 }
+
+
+.st-key-registerPage {
+    background: #3677ff;
+    position: relative;
+    top: -1rem;
+}
+
+.st-key-registerTitleContainer {
+    width: fit-content;
+    color: white;
+    margin: 30px auto;
+}
+
+.registerTitle {
+    text-align: center;
+    text-shadow: black 0 0 10px;
+}
+
+.registerTitleSmall {
+    text-align: center;
+    text-shadow: black 0 0 10px;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .registerTitle {
+        display: none;
+    }
+
+    .registerTitleSmall {
+        display: block;
+    }
+}
+
+.st-key-formContainer {
+    width: 95%;
+    background: #9dbcff;
+    border-radius: 10px;
+    margin: 0 auto 40px;
+}
