@@ -16,6 +16,10 @@ div[data-testid="stElementToolbar"] {
     visibility: hidden;
 }
 
+[data-testid="stHeaderActionElements"] {
+    display: none !important;
+}
+
 .st-key-logo {
     background: radial-gradient(circle, #3677ffff, transparent 60%), center, no-repeat;
     position: fixed;
