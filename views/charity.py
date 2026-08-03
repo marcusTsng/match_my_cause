@@ -1,5 +1,4 @@
 import streamlit as st
-from dataManagement import loadCharities, Charity
 import dataManagement
 
 parameters = st.query_params
@@ -7,10 +6,10 @@ parameters = st.query_params
 
 if "id" in parameters: 
     charityId = int(parameters['id'])
-    charity : Charity = loadCharities()[charityId - 1]
+    charity : dataManagement.Charity = dataManagement.loadCharities()[charityId - 1]
 
     # --- HEADER ---
-    with st.condstainer(key="logoBar"):
+    with st.container(key="logoBar"):
         barColumns = st.columns(2)
         with barColumns[0]:
             st.image(

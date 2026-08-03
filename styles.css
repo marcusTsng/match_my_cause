@@ -497,9 +497,10 @@ div[class*="st-key-discoverDonate"]:hover a {
     margin: 0 auto 40px;
 }
 
-
-
-
+.st-key-submitContainer {
+    width: 50%;
+    margin: 0 auto;
+}
 
 
 
