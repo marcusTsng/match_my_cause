@@ -5,7 +5,7 @@ import pandas as pd
 
 # Class for all charities
 class Charity:
-    def __init__(self, ID, name, category, status, visits, tags, website, logoURL, donationURL, description):
+    def __init__(self, ID, name, category, status, visits, tags, website, logoURL, donationURL, image1URL, image2URL, image3URL, image4URL, image5URL, description):
         self.ID = ID
         self.name = name
         self.category = category
@@ -15,6 +15,11 @@ class Charity:
         self.website = website
         self.logoURL = logoURL
         self.donationURL = donationURL
+        self.image1URL = image1URL
+        self.image2URL = image2URL
+        self.image3URL = image3URL
+        self.image4URL = image4URL
+        self.image5URL = image5URL
         self.description = description
 
 
@@ -41,13 +46,18 @@ def loadCharities():
             website=row['Website'],
             logoURL=row['LogoURL'],
             donationURL=row['DonationURL'],
+            image1URL=row['Image1URL'],
+            image2URL=row['Image2URL'],
+            image3URL=row['Image3URL'],
+            image4URL=row['Image4URL'],
+            image5URL=row['Image5URL'],
             description=row['Description']
         )
         allCharities.append(individual_charity)
     return allCharities
 
 
-def uploadToSheet(name, category, tags, website, logoURL, donationURL, description):
+def uploadToSheet(name, category, tags, website, logoURL, donationURL, image1URL, image2URL, image3URL, image4URL, image5URL, description):
     currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
 
     # Assigns a new ID (if rows are deleted, their IDs won't be replaced)
@@ -66,6 +76,11 @@ def uploadToSheet(name, category, tags, website, logoURL, donationURL, descripti
         'Website': website,
         'LogoURL': logoURL,
         'DonationURL': donationURL,
+        'Image1URL': image1URL,
+        'Image2URL': image2URL,
+        'Image3URL': image3URL,
+        'Image4URL': image4URL,
+        'Image5URL': image5URL,
         'Description': description
     }
 
