@@ -14,6 +14,8 @@ if "id" in parameters:
             charity : dataManagement.Charity = x
     if not charity: st.warning("Error - Charity not found", icon="⚠️")
 
+    st.set_page_config(page_title=charity.name)
+
     # charity : dataManagement.Charity = dataManagement.loadCharities()[charityId - 1]
 
     # --- HEADER ---
