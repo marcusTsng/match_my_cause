@@ -6,7 +6,15 @@ parameters = st.query_params
 
 if "id" in parameters: 
     charityId = int(parameters['id'])
-    charity : dataManagement.Charity = dataManagement.loadCharities()[charityId - 1]
+    charities = dataManagement.loadCharities()
+    charity = None
+    for x in charities:
+        x : dataManagement.Charity 
+        if x.ID == charityId:
+            charity : dataManagement.Charity = x
+    if not charity: st.warning("Error - Charity not found", icon="⚠️")
+
+    # charity : dataManagement.Charity = dataManagement.loadCharities()[charityId - 1]
 
     # --- HEADER ---
     with st.container(key="logoBar"):
