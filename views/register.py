@@ -7,15 +7,16 @@ with st.container(key="registerPage"):
 
     with st.container(key="formContainer"):
         with st.form(key="registerCharity", clear_on_submit=True, enter_to_submit=False):
-            formColumns = st.columns(2)
+            formColumns = st.columns(2, gap='medium')
             with formColumns[0]:
-                with st.container(key="formColumn1"):
-                    newName = st.text_input("Charity Name", placeholder="Tell us your charity's name!")
-                    newCategory = st.pills("Category",
+                newName = st.text_input("**Charity Name**", placeholder="Tell us your charity's name!")
+                newCategory = st.selectbox("**Category**",
                                            ["Animals", "Environment", "Education", "Poverty", "Healthcare", "Culture", "Rights", "Other"],
-                                           required=True)
+                                           key="selectCategory", index=None, placeholder="Select a category", filter_mode=None)
+                newTags = st.multiselect("**Tags**", [""])
 
             with formColumns[1]:
-                test2 = st.text_input("Tags")
+                newDes = st.text_area("**Description**", height='stretch')
 
-            submitted = st.form_submit_button("Submit")
+            with st.container(key='submitContainer'):
+                submitted = st.form_submit_button("Submit", width='stretch', type='primary')
