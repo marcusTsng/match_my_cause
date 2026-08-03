@@ -496,3 +496,174 @@ div[class*="st-key-discoverDonate"]:hover a {
     border-radius: 10px;
     margin: 0 auto 40px;
 }
+
+
+
+
+
+
+
+
+/* --- Image Carousel Layout --- */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 42vh; /* Uses viewport height to dynamically take up 42% of the screen */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+}
+
+/* The black panel fading into the image */
+.carousel-fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%; /* Controls how far the gradient extends */
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+.carousel-overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    z-index: 2;
+}
+
+/* --- Title and Description --- */
+.centeredTitle {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    margin-top: 20px;
+    color: #1e293b;
+}
+
+.centeredDesc {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    padding: 0 20px;
+    color: #475569;
+}
+
+/* --- Fixed Bottom Buttons --- */
+.st-key-bottomNavBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white; /* Matches page background */
+    padding: 15px 20px 25px 20px; /* Extra bottom padding for mobile safe areas */
+    box-shadow: 0px -4px 10px rgba(0,0,0,0.05); /* Soft shadow indicating it sits above content */
+    z-index: 9999;
+}
+
+/* Important: Add padding to the main container so content isn't hidden behind the fixed buttons at the very bottom */
+.block-container {
+    padding-bottom: 100px !important; 
+}
+/* --- Global Reset & Card Layout --- */
+.block-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    background-color: #f8fafc; /* Subtle off-white backdrop */
+}
+
+/* Restricts the main content to look like a mobile panel centered on desktop */
+.app-card-layout {
+    max-width: 450px;
+    margin: 40px auto 120px auto;
+    padding: 0 15px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Linear gradient overlay matching your dark panel description */
+.carousel-fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+.carousel-overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    transform: translateY(-50%);
+    color: #ffffff !important;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    z-index: 10;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Fix Streamlit column buttons alignment for arrows */
+.stButton button {
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* --- Header & Typography --- */
+.centeredTitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.centeredDesc {
+    text-align: center;
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    padding: 0 10px;
+}
+
+/* --- Fixed Bottom Buttons --- */
+.st-key-bottomNavBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    padding: 15px 0 30px 0;
+    z-index: 99999;
+}
+
+.bottom-button-strip {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Makes bottom buttons rectangular and neat */
+.st-key-p1 button, .st-key-p2 button, .st-key-p3 button {
+    border-radius: 8px !important;
+    width: 100% !important;
+    height: 45px !important;
+}
