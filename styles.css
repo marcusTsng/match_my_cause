@@ -59,6 +59,10 @@ div[data-testid="stElementToolbar"] {
     background: rgba(200, 200, 200, 15%);
 }
 
+.st-key-searchButton:hover p {
+    color: white !important;
+}
+
 @media (max-width: 650px) {
     .st-key-logoBar div[data-testid="stImage"]:nth-of-type(2) {
         display: none;
@@ -103,6 +107,10 @@ div[data-testid="stElementToolbar"] {
 
 .st-key-registerButton:hover {
     transform: scale(1.05);
+}
+
+.st-key-registerButton:hover p {
+    color: white !important;
 }
 
 
@@ -355,6 +363,10 @@ div[class*="st-key-discoverLearnMore"] button p {
 
 div[class*="st-key-discoverLearnMore"]:hover {
     background: #3677ff;
+}
+
+div[class*="st-key-discoverLearnMore"]:hover p {
+    color: white !important;
 }
 
 div[class*="st-key-discoverDonate"] {
