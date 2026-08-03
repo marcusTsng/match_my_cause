@@ -31,8 +31,8 @@ if "id" in parameters:
 
 
     placeholder_images = [
-        "https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg",
-        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000"
+        charity.image1URL,
+        charity.image2URL
     ]
     
     if 'carousel_idx' not in st.session_state:
