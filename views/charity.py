@@ -18,7 +18,6 @@ if "id" in parameters:
 
     # charity : dataManagement.Charity = dataManagement.loadCharities()[charityId - 1]
 
-    # --- HEADER ---
     with st.container(key="logoBar"):
         barColumns = st.columns(2)
         with barColumns[0]:
@@ -30,7 +29,7 @@ if "id" in parameters:
             if st.button(":material/close:", key="searchButton", type="tertiary"):
                 st.switch_page("views/discover.py")
 
-    # --- CAROUSEL STATE & DATA ---
+
     placeholder_images = [
         "https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg",
         "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000"
@@ -42,7 +41,7 @@ if "id" in parameters:
     def next_image(): st.session_state.carousel_idx = (st.session_state.carousel_idx + 1) % len(placeholder_images)
     def prev_image(): st.session_state.carousel_idx = (st.session_state.carousel_idx - 1) % len(placeholder_images)
 
-    # --- IMAGE CAROUSEL ---
+
     carousel_cols = st.columns([1, 8, 1], vertical_alignment="center")
     
     with carousel_cols[0]:
@@ -62,7 +61,7 @@ if "id" in parameters:
     with carousel_cols[2]:
         st.button("❯", key="nextBtn", on_click=next_image, type="secondary")
 
-    # --- TITLE & DESCRIPTION ---
+
     st.markdown(f'<h2 class="centeredTitle">{charity.name}</h2>', unsafe_allow_html=True)
     
     description = "Error while accessing details. Organisation has likely not provided details for the charity."
@@ -70,7 +69,7 @@ if "id" in parameters:
 
     st.markdown('</div>', unsafe_allow_html=True) # End app-card-layout
 
-    # --- FIXED BOTTOM BUTTONS ---
+
     with st.container(key="bottomNavBar"):        
         st.markdown('<div class="bottom-button-strip">', unsafe_allow_html=True)
         nav_cols = st.columns(3)

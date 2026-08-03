@@ -615,7 +615,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
 
-/* Fix Streamlit column buttons alignment for arrows */
 .stButton button {
     border-radius: 50% !important;
     width: 40px !important;
@@ -626,7 +625,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     justify-content: center !important;
 }
 
-/* --- Header & Typography --- */
 .centeredTitle {
     text-align: center;
     font-size: 28px;
@@ -644,7 +642,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     padding: 0 10px;
 }
 
-/* --- Fixed Bottom Buttons --- */
 .st-key-bottomNavBar {
     position: fixed;
     bottom: 0;
@@ -662,7 +659,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     padding: 0 20px;
 }
 
-/* Makes bottom buttons rectangular and neat */
 .st-key-p1 button, .st-key-p2 button, .st-key-p3 button {
     border-radius: 8px !important;
     width: 100% !important;
