@@ -59,11 +59,6 @@ div[data-testid="stElementToolbar"] {
     background: rgba(200, 200, 200, 15%);
 }
 
-.st-key-searchButton:hover p {
-    color: white !important;
-}
-
-
 @media (max-width: 650px) {
     .st-key-logoBar div[data-testid="stImage"]:nth-of-type(2) {
         display: none;
@@ -108,10 +103,6 @@ div[data-testid="stElementToolbar"] {
 
 .st-key-registerButton:hover {
     transform: scale(1.05);
-}
-
-.st-key-registerButton:hover p {
-    color: white !important;
 }
 
 
@@ -366,10 +357,6 @@ div[class*="st-key-discoverLearnMore"]:hover {
     background: #3677ff;
 }
 
-div[class*="st-key-discoverLearnMore"]:hover p {
-    color: white !important;
-}
-
 div[class*="st-key-discoverDonate"] {
     width: 100% !important;
     margin-top: -5px;
@@ -508,58 +495,23 @@ div[class*="st-key-discoverDonate"]:hover a {
     background: #9dbcff;
     border-radius: 10px;
     margin: 0 auto 40px;
-    padding: 20px;
-}
-
-div[class*="st-key-imageUploadContainer"] {
-    background: white;
-    border-radius: 15px;
-}
-
-div[class*="st-key-imageUpload"] {
-    background: white;
-    width: 100%;
-    aspect-ratio: 7/4;
-    border-radius: 15px;
-    align-content: center !important;
-    box-shadow: inset 0 10px 15px -10px rgba(0, 0, 0, 0.5);
-}
-
-div[class*="st-key-imageUpload"] p {
-    font-size: 20px;
-}
-
-div[class*="st-key-uploadedImage"] div[data-testid="stImage"] {
-    width: 100% !important;
-    aspect-ratio: 7/4 !important;
-    overflow: hidden;
-    border-radius: 15px !important;
-}
-
-div[class*="st-key-removeImage"] {
-    position: relative;
-    top: -10px;
-}
-
-div[class*="st-key-removeImage"] p {
-    font-size: 20px;
 }
 
 
-.st-key-submitContainer {
-    width: 50%;
-    margin: 0 auto;
-}
+
+
+
+
 
 
 /* --- Image Carousel Layout --- */
 .carousel-wrapper {
     position: relative;
     width: 100%;
-    height: 42vh; /* Uses viewport height to dynamically take up 42% of the screen */
-    border-radius: 16px;
+    height: 60vh;
     overflow: hidden;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
 }
 
 .carousel-img {
@@ -568,27 +520,21 @@ div[class*="st-key-removeImage"] p {
     object-fit: cover !important;
 }
 
-/* The black panel fading into the image */
-.carousel-fade {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60%; /* Controls how far the gradient extends */
-    height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-    pointer-events: none;
-}
 
 .carousel-overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    z-index: 2;
+    position: absolute !important;
+    top: auto !important;                 
+    bottom: 20px !important;              
+    left: 50% !important;                 
+    transform: translateX(-50%) !important;
+    width: 80% !important;               
+    text-align: center !important;
+    color: #ffffff !important;
+    /* font-family: 'Nunito', sans-serif !important; */
+    font-size: 50px !important;
+    font-weight: 700 !important;
+    z-index: 10 !important;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* --- Title and Description --- */
@@ -607,17 +553,6 @@ div[class*="st-key-removeImage"] p {
     color: #475569;
 }
 
-/* --- Fixed Bottom Buttons --- */
-.st-key-bottomNavBar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: white; /* Matches page background */
-    padding: 15px 20px 25px 20px; /* Extra bottom padding for mobile safe areas */
-    box-shadow: 0px -4px 10px rgba(0,0,0,0.05); /* Soft shadow indicating it sits above content */
-    z-index: 9999;
-}
 
 /* Important: Add padding to the main container so content isn't hidden behind the fixed buttons at the very bottom */
 .block-container {
@@ -640,29 +575,28 @@ div[class*="st-key-removeImage"] p {
 
 /* Linear gradient overlay matching your dark panel description */
 .carousel-fade {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
-    pointer-events: none;
+    position: absolute !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 50% !important;               /* Fades up behind the text */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    pointer-events: none !important;
 }
 
-.carousel-overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 24px;
-    transform: translateY(-50%);
-    color: #ffffff !important;
-    font-family: 'Nunito', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    z-index: 10;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+/* Fix Streamlit column buttons alignment for arrows */
+.stButton button {
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-
+/* --- Header & Typography --- */
 .centeredTitle {
     text-align: center;
     font-size: 28px;
@@ -680,6 +614,7 @@ div[class*="st-key-removeImage"] p {
     padding: 0 10px;
 }
 
+/* --- Fixed Bottom Buttons --- */
 .st-key-bottomNavBar {
     position: fixed;
     bottom: 0;
@@ -697,8 +632,99 @@ div[class*="st-key-removeImage"] p {
     padding: 0 20px;
 }
 
-.st-key-p1 button, .st-key-p2 button, .st-key-p3 button {
-    border-radius: 8px !important;
+
+.st-key-charity_page_details_box {
+    padding: 2%; 
+}
+
+.st-key-charity-button-1 button, 
+.st-key-charity-button-2 button, 
+.st-key-charity-button-3 button {
+    border-radius: 10px !important;
+    height: 48px !important;
     width: 100% !important;
-    height: 45px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    background-color: #FFFFFF !important;
+    color: #5b5b5b !important;
+    border: 1.5px solid #DBEAFE !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+}
+
+.st-key-charity-button-1 button:hover, 
+.st-key-charity-button-2 button:hover, 
+.st-key-charity-button-3 button:hover {
+    background-color: #EFF6FF !important;
+    border-color: #2563EB !important;
+    color: #1D4ED8 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12) !important;
+}
+
+
+.st-key-charity-button-1 button:active, 
+.st-key-charity-button-2 button:active, 
+.st-key-charity-button-3 button:active {
+    transform: translateY(0) scale(0.98) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+/* Parent Container Setup */
+.st-key-carousel_container {
+    position: relative !important;
+    width: 100% !important;
+}
+
+/* Float Arrow Wrappers over the Image */
+.st-key-prevBtn, 
+.st-key-nextBtn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    /* z-index: 20 !important; */
+    z-index: 99 !important; /* Forces buttons to the highest layer */
+}
+
+.st-key-prevBtn {
+    left: 16px !important;
+}
+
+.st-key-nextBtn {
+    right: 16px !important;
+}
+
+/* Glassmorphic Circular Arrow Button Styling */
+.st-key-prevBtn button, 
+.st-key-nextBtn button {
+    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(4px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    color: #0f172a !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hover State for Arrow Buttons */
+.st-key-prevBtn button:hover, 
+.st-key-nextBtn button:hover {
+    background: #ffffff !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Active Click Feedback */
+.st-key-prevBtn button:active, 
+.st-key-nextBtn button:active {
+    transform: scale(0.95) !important;
 }
