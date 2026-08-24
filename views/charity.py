@@ -32,18 +32,16 @@ if "id" in parameters:
         charity.image2URL
     ]
     
-    if 'carousel_idx' not in st.session_state:
-        st.session_state.carousel_idx = 0
+    if 'carouselInd' not in st.session_state:
+        st.session_state.carouselInd = 0
 
-    def next_image(): 
-        st.session_state.carousel_idx = (st.session_state.carousel_idx + 1) % len(placeholder_images)
-    def prev_image(): 
-        st.session_state.carousel_idx = (st.session_state.carousel_idx - 1) % len(placeholder_images)
+    def nextImage(): 
+        st.session_state.carouselInd = (st.session_state.carouselInd + 1) % len(placeholder_images)
+    def prevImage(): 
+        st.session_state.carouselInd = (st.session_state.carouselInd - 1) % len(placeholder_images)
 
-    # --- CAROUSEL SECTION ---
     with st.container(key="carousel_container"):
-        # Carousel Image & Content
-        current_img = placeholder_images[st.session_state.carousel_idx]
+        current_img = placeholder_images[st.session_state.carouselInd]
         img_text = charity.name
         st.markdown(f"""
             <div class="carousel-wrapper">
@@ -53,18 +51,16 @@ if "id" in parameters:
             </div>
         """, unsafe_allow_html=True)
 
-        # Carousel Navigation Buttons
-        st.button("❮", key="prevBtn", on_click=prev_image, type="secondary")
-        st.button("❯", key="nextBtn", on_click=next_image, type="secondary")
+        st.button("❮", key="prevBtn", on_click=prevImage, type="secondary")
+        st.button("❯", key="nextBtn", on_click=nextImage, type="secondary")
 
-    # --- MAIN DETAILS SECTION ---
     with st.container(key="charity_page_details_box"):
         main_cols = st.columns([5, 3])
-        with main_cols[0]: # DESCRIPTION
+        with main_cols[0]:
             st.markdown(f'<h2 class="centeredTitle">About Us</h2>', unsafe_allow_html=True)
             description = "Error while accessing details. Organisation has likely not provided details for the charity."
             st.markdown(f'<p class="centeredDesc">{description}</p>', unsafe_allow_html=True)
-        with main_cols[1]: # BUTTONS
+        with main_cols[1]:
             st.button("Donate", use_container_width=True, key="charity-button-1")
             st.button("Contact", use_container_width=True, key="charity-button-2")
             st.button("Register", use_container_width=True, key="charity-button-3")

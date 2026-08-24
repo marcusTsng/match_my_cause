@@ -55,6 +55,10 @@ div[data-testid="stElementToolbar"] {
     font-size: 25px;
 }
 
+.st-key-searchButton button p:hover {
+    color: white;
+}
+
 .st-key-searchButton:hover {
     background: rgba(200, 200, 200, 15%);
 }
@@ -99,6 +103,10 @@ div[data-testid="stElementToolbar"] {
 
 .st-key-registerButton button p {
     font-size: 35px;
+}
+
+.st-key-registerButton button:hover {
+    color: white;
 }
 
 .st-key-registerButton:hover {
@@ -353,6 +361,10 @@ div[class*="st-key-discoverLearnMore"] button p {
     font-weight: bold;
 }
 
+div[class*="st-key-discoverLearnMore"] button:hover {
+    color: white;
+}
+
 div[class*="st-key-discoverLearnMore"]:hover {
     background: #3677ff;
 }
@@ -497,14 +509,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     margin: 0 auto 40px;
 }
 
-
-
-
-
-
-
-
-/* --- Image Carousel Layout --- */
 .carousel-wrapper {
     position: relative;
     width: 100%;
@@ -520,7 +524,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     object-fit: cover !important;
 }
 
-
 .carousel-overlay-text {
     position: absolute !important;
     top: auto !important;                 
@@ -530,14 +533,12 @@ div[class*="st-key-discoverDonate"]:hover a {
     width: 80% !important;               
     text-align: center !important;
     color: #ffffff !important;
-    /* font-family: 'Nunito', sans-serif !important; */
     font-size: 50px !important;
     font-weight: 700 !important;
     z-index: 10 !important;
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7) !important;
 }
 
-/* --- Title and Description --- */
 .centeredTitle {
     text-align: center;
     font-family: 'Nunito', sans-serif;
@@ -553,19 +554,16 @@ div[class*="st-key-discoverDonate"]:hover a {
     color: #475569;
 }
 
-
-/* Important: Add padding to the main container so content isn't hidden behind the fixed buttons at the very bottom */
 .block-container {
     padding-bottom: 100px !important; 
 }
-/* --- Global Reset & Card Layout --- */
+
 .block-container {
     max-width: 100% !important;
     padding: 0 !important;
-    background-color: #f8fafc; /* Subtle off-white backdrop */
+    background-color: #f8fafc;
 }
 
-/* Restricts the main content to look like a mobile panel centered on desktop */
 .app-card-layout {
     max-width: 450px;
     margin: 40px auto 120px auto;
@@ -573,30 +571,17 @@ div[class*="st-key-discoverDonate"]:hover a {
     font-family: 'Nunito', sans-serif;
 }
 
-/* Linear gradient overlay matching your dark panel description */
 .carousel-fade {
     position: absolute !important;
     top: auto !important;
     bottom: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: 50% !important;               /* Fades up behind the text */
+    height: 50% !important;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%) !important;
     pointer-events: none !important;
 }
 
-/* Fix Streamlit column buttons alignment for arrows */
-.stButton button {
-    border-radius: 50% !important;
-    width: 40px !important;
-    height: 40px !important;
-    padding: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* --- Header & Typography --- */
 .centeredTitle {
     text-align: center;
     font-size: 28px;
@@ -614,7 +599,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     padding: 0 10px;
 }
 
-/* --- Fixed Bottom Buttons --- */
 .st-key-bottomNavBar {
     position: fixed;
     bottom: 0;
@@ -649,7 +633,7 @@ div[class*="st-key-discoverDonate"]:hover a {
     cursor: pointer !important;
     background-color: #FFFFFF !important;
     color: #5b5b5b !important;
-    border: 1.5px solid #DBEAFE !important;
+    border: 2px solid #DBEAFE !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
 }
 
@@ -659,8 +643,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     background-color: #EFF6FF !important;
     border-color: #2563EB !important;
     color: #1D4ED8 !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12) !important;
 }
 
 
@@ -672,20 +654,17 @@ div[class*="st-key-discoverDonate"]:hover a {
 }
 
 
-/* Parent Container Setup */
 .st-key-carousel_container {
     position: relative !important;
     width: 100% !important;
 }
 
-/* Float Arrow Wrappers over the Image */
 .st-key-prevBtn, 
 .st-key-nextBtn {
     position: absolute !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    /* z-index: 20 !important; */
-    z-index: 99 !important; /* Forces buttons to the highest layer */
+    z-index: 99 !important;
 }
 
 .st-key-prevBtn {
@@ -696,7 +675,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     right: 16px !important;
 }
 
-/* Glassmorphic Circular Arrow Button Styling */
 .st-key-prevBtn button, 
 .st-key-nextBtn button {
     border-radius: 50% !important;
@@ -715,7 +693,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Hover State for Arrow Buttons */
 .st-key-prevBtn button:hover, 
 .st-key-nextBtn button:hover {
     background: #ffffff !important;
@@ -723,7 +700,6 @@ div[class*="st-key-discoverDonate"]:hover a {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28) !important;
 }
 
-/* Active Click Feedback */
 .st-key-prevBtn button:active, 
 .st-key-nextBtn button:active {
     transform: scale(0.95) !important;
