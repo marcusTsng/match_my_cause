@@ -507,6 +507,7 @@ div[class*="st-key-discoverDonate"]:hover a {
     background: #9dbcff;
     border-radius: 10px;
     margin: 0 auto 40px;
+    padding: 20px;
 }
 
 .carousel-wrapper {

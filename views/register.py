@@ -49,55 +49,6 @@ with st.container(key="registerPage"):
         with formColumns[1]:
             newDesc = st.text_area("**Description**", placeholder="Tell us about your charity", height='stretch', help="This will be displayed in its entirety on your charity's page.")
 
-        st.space(size=1)
-        st.write("**Upload Images**")
-
-        pictureColumns = st.columns(6, gap='medium')
-
-        newImages = [None] * 6
-
-        for newImageInd in range(6):
-            if f"newImage{newImageInd}" not in st.session_state:
-                st.session_state[f"newImage{newImageInd}"] = False
-            if f"resetImage{newImageInd}" not in st.session_state:
-                st.session_state[f"resetImage{newImageInd}"] = False
-
-        for columnIndex in range(6):
-            with pictureColumns[columnIndex]:
-                if columnIndex == 0:
-                    label = "Logo"
-                else:
-                    label = f"Image {columnIndex}"
-
-                if st.session_state[f"newImage{columnIndex}"]:
-                    st.html(f"""
-                        <style>
-                        .imageUpload{columnIndex}""" + """ {
-                            background: red;
-                            display: none;
-                        }
-                        </style>""")
-
-                with st.container(key=f"imageUploadContainer{columnIndex}"):
-                    if st.session_state[f"resetImage{columnIndex}"]:
-                        st.session_state[f"toReset{columnIndex}"] = ""
-                        st.session_state[f"resetImage{columnIndex}"] = False
-
-                    with st.popover(f"**{label}**", key=f"imageUpload{columnIndex}", type='tertiary'):
-                        newImages[columnIndex] = st.text_input(f"{label} URL", key=f"toReset{columnIndex}")
-                        if newImages[columnIndex] and not st.session_state[f"newImage{columnIndex}"]:
-                            st.session_state[f"newImage{columnIndex}"] = True
-                            st.rerun()
-
-                    if newImages[columnIndex]:
-                        with st.container(key=f"uploadedImage{columnIndex}"):
-                            st.image(newImages[columnIndex])
-                            if st.button("Remove", key=f"removeImage{columnIndex}", width='stretch', type='tertiary'):
-                                newImages[columnIndex] = None
-                                st.session_state[f"newImage{columnIndex}"] = False
-                                st.session_state[f"resetImage{newImageInd}"] = True
-                                st.rerun()
-
 
         with st.container(key='submitContainer'):
             submitted = st.button("Submit", width='stretch', type='primary')
