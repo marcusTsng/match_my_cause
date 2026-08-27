@@ -5,6 +5,7 @@ loadedCharities = dataManagement.loadCharities()
 
 
 def searchFunction(query):
+    query = str(query)
     IDsFoundTitle = []
     IDsFoundCats = []
     IDsFoundTags = []
@@ -40,7 +41,7 @@ with st.container(key="searchContainer", height=140):
     searchQuery = st.text_input("", searchContents, icon=":material/search:", placeholder="Search names, tags, categories...", key="searchBox")
 
 if searchQuery or searchContents:
-    charities = searchFunction(searchQuery.lower().split(" "))
+    charities = searchFunction(searchQuery.lower())
     if len(charities) > 0:
         with st.container(key="searchResults"):
             charitiesToShow = []
