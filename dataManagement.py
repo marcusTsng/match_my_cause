@@ -57,7 +57,8 @@ def loadCharities():
     return allCharities
 
 
-def uploadToSheet(name, category, tags, website, logoURL, donationURL, image1URL, image2URL, image3URL, image4URL, image5URL, description):
+@st.cache_data(ttl=0, show_spinner=False)
+def uploadToSheet(name, category, tags, website, donationURL, logoURL, image1URL, image2URL, image3URL, image4URL, image5URL, description):
     currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
 
     # Assigns a new ID (if rows are deleted, their IDs won't be replaced)
