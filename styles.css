@@ -510,6 +510,39 @@ div[class*="st-key-discoverDonate"]:hover a {
     padding: 20px;
 }
 
+.st-key-submitContainer {
+    width: 60%;
+    margin: 0 auto;
+}
+
+div[class*="st-key-imageContainer"] {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    border:  2px solid grey;
+    position: relative;
+    top: -0.5rem;
+}
+
+div[class*="st-key-uploadImageURL"] {
+    position: relative;
+    margin-top: -2rem;
+}
+
+div[class*="st-key-uploadedImage"] {
+    aspect-ratio: 7/4 !important;
+    border-radius: 12px;
+    border:  2px solid lightgrey;
+    position: relative;
+}
+
+div[class*="st-key-uploadedImage"] div[data-testid="stImage"] {
+    width: 100% !important;
+    aspect-ratio: 7/4 !important;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
 .carousel-wrapper {
     position: relative;
     width: 100%;
