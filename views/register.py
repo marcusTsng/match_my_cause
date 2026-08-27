@@ -82,6 +82,12 @@ with st.container(key="registerPage"):
             if submitted:
                 if all([newName, newCategory, newTags, newWebsite, newDonation, uploadedImages[0], uploadedImages[1]]):
                     uploadTags = ", ".join(newTags)
-                    dataManagement.uploadToSheet(newName, newCategory, uploadTags, newWebsite, newDonation, *uploadedImages, newDesc)
+                    placeholder = st.empty() # Removes ugly spinner without using @st.cache_data to prevent unexpected behaviour
+                    success = dataManagement.uploadToSheet(newName, newCategory, uploadTags, newWebsite, newDonation, *uploadedImages, newDesc)
+                    placeholder.empty()
+                    if success:
+                        st.toast("Upload successful! Check out your charity in Discover!")
+                    else:
+                        st.toast("Something went wrong...")
                 else:
-                    st.toast("Please ensure that all fields have been filled out, and that your Logo and Image 1 are displaying properly.")
+                    st.toast("Please ensure that all fields have been filled out, and that your Logo and Image 1 are displaying properly.", icon=":material/warning:")

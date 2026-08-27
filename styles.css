@@ -544,7 +544,7 @@ div[class*="st-key-uploadedImage"] div[data-testid="stImage"] {
 }
 
 div[data-testid="stToast"] {
-    background: rgba(255,0,0,0.6);
+    background: rgba(255,255,255,0.6);
     position: fixed;
     top: auto;
     right: 40px;
@@ -554,8 +554,7 @@ div[data-testid="stToast"] {
 }
 
 div[data-testid="stToast"] p {
-    color: white;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
     text-align: right;
 }

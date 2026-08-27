@@ -38,20 +38,20 @@ def loadCharities():
 
         individual_charity = Charity(
             ID=row['ID'],
-            name=row['Name'],
-            category=row['Category'],
-            status=row['Status'],
-            visits=row['Visits'],
+            name=str(row['Name']),
+            category=str(row['Category']),
+            status=str(row['Status']),
+            visits=str(row['Visits']),
             tags=tagList,
-            website=row['Website'],
-            logoURL=row['LogoURL'],
-            donationURL=row['DonationURL'],
-            image1URL=row['Image1URL'],
-            image2URL=row['Image2URL'],
-            image3URL=row['Image3URL'],
-            image4URL=row['Image4URL'],
-            image5URL=row['Image5URL'],
-            description=row['Description']
+            website=str(row['Website']),
+            logoURL=str(row['LogoURL']),
+            donationURL=str(row['DonationURL']),
+            image1URL=str(row['Image1URL']),
+            image2URL=str(row['Image2URL']),
+            image3URL=str(row['Image3URL']),
+            image4URL=str(row['Image4URL']),
+            image5URL=str(row['Image5URL']),
+            description=str(row['Description'])
         )
         allCharities.append(individual_charity)
     return allCharities
@@ -59,36 +59,41 @@ def loadCharities():
 
 @st.cache_data(ttl=0, show_spinner=False)
 def uploadToSheet(name, category, tags, website, donationURL, logoURL, image1URL, image2URL, image3URL, image4URL, image5URL, description):
-    currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
+    try:
+        currentState = conn.read(worksheet="Sheet1", ttl=0).dropna(how='all')
 
-    # Assigns a new ID (if rows are deleted, their IDs won't be replaced)
-    if currentState.empty or "ID" not in currentState.columns:
-        nextID = 1
-    else:
-        nextID = int(pd.to_numeric(currentState["ID"], errors='coerce').max()) + 1
+        # Assigns a new ID (if rows are deleted, their IDs won't be replaced)
+        if currentState.empty or "ID" not in currentState.columns:
+            nextID = 1
+        else:
+            nextID = int(pd.to_numeric(currentState["ID"], errors='coerce').max()) + 1
 
-    toUpload = {
-        'ID': nextID,
-        'Name': name,
-        'Category': category,
-        'Status': "Pending",
-        'Visits': 0,
-        'Tags': tags,  # Separated by commas (please)
-        'Website': website,
-        'LogoURL': logoURL,
-        'DonationURL': donationURL,
-        'Image1URL': image1URL,
-        'Image2URL': image2URL,
-        'Image3URL': image3URL,
-        'Image4URL': image4URL,
-        'Image5URL': image5URL,
-        'Description': description
-    }
+        toUpload = {
+            'ID': nextID,
+            'Name': name,
+            'Category': category,
+            'Status': "Pending",
+            'Visits': 0,
+            'Tags': tags,  # Separated by commas (please)
+            'Website': website,
+            'LogoURL': logoURL,
+            'DonationURL': donationURL,
+            'Image1URL': image1URL,
+            'Image2URL': image2URL,
+            'Image3URL': image3URL,
+            'Image4URL': image4URL,
+            'Image5URL': image5URL,
+            'Description': description
+        }
 
-    updatedState = pd.concat([currentState, pd.DataFrame([toUpload])], ignore_index=True)
-    conn.update(worksheet="Sheet1", data=updatedState)
+        updatedState = pd.concat([currentState, pd.DataFrame([toUpload])], ignore_index=True)
+        conn.update(worksheet="Sheet1", data=updatedState)
 
-    st.cache_data.clear() # Ensures the website updates after uploading
+        st.cache_data.clear() # Ensures the website updates after uploading
+
+        return True
+    except:
+        return False
     
 
 def injectCSS():
