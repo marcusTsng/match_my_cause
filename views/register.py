@@ -83,3 +83,5 @@ with st.container(key="registerPage"):
                 if all([newName, newCategory, newTags, newWebsite, newDonation, uploadedImages[0], uploadedImages[1]]):
                     uploadTags = ", ".join(newTags)
                     dataManagement.uploadToSheet(newName, newCategory, uploadTags, newWebsite, newDonation, *uploadedImages, newDesc)
+                else:
+                    st.toast("Please ensure that all fields have been filled out, and that your Logo and Image 1 are displaying properly.")

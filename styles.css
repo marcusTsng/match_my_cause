@@ -543,6 +543,31 @@ div[class*="st-key-uploadedImage"] div[data-testid="stImage"] {
     border-radius: 10px;
 }
 
+div[data-testid="stToast"] {
+    background: rgba(255,0,0,0.6);
+    position: fixed;
+    top: auto;
+    right: 40px;
+    bottom: 40px;
+    left: auto;
+    width: 500px;
+}
+
+div[data-testid="stToast"] p {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: right;
+}
+
+@media (max-width: 580px) {
+    div[data-testid="stToast"] {
+        left: 40px;
+        width: auto;
+    }
+}
+
+
 .carousel-wrapper {
     position: relative;
     width: 100%;
