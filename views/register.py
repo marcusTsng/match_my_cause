@@ -78,7 +78,7 @@ with st.container(key="registerPage"):
         st.markdown("**:red[* Indicates required fields.]**")
 
         with st.container(key='submitContainer'):
-            submitted = st.button("Submit", width='stretch', type='primary')
+            submitted = st.button("**Submit**", width='stretch', type='primary')
             if submitted:
                 if all([newName, newCategory, newWebsite, newDonation, uploadedImages[0], uploadedImages[1]]):
                     uploadTags = ", ".join(newTags)
