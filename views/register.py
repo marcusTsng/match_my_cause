@@ -2,6 +2,8 @@ import streamlit as st
 
 import dataManagement
 
+alreadySubmitted = False
+
 with st.container(key="registerPage"):
     with st.container(key="registerTitleContainer"):
         st.markdown('<h2 class="registerTitle">Register your own charity</h2>', unsafe_allow_html=True)
@@ -79,7 +81,9 @@ with st.container(key="registerPage"):
 
         with st.container(key='submitContainer'):
             submitted = st.button("**Submit**", width='stretch', type='primary')
-            if submitted:
+            if alreadySubmitted:
+                st.toast("You have already submitted one charity. If you wish to make any edits, contact us at matchmycause@gmail.com", icon=":material/info:")
+            elif submitted:
                 if all([newName, newCategory, newWebsite, newDonation, uploadedImages[0], uploadedImages[1]]):
                     uploadTags = ", ".join(newTags)
                     placeholder = st.empty() # Removes ugly spinner without using @st.cache_data to prevent unexpected behaviour
@@ -87,7 +91,8 @@ with st.container(key="registerPage"):
                     placeholder.empty()
                     if success:
                         st.toast("Upload successful! Check out your charity in Discover!")
+                        alreadySubmitted = True
                     else:
-                        st.toast("Something went wrong...")
+                        st.toast("Something went wrong...", icon=":material/warning:")
                 else:
                     st.toast("Please ensure that all fields have been filled out, and that your Logo and Image 1 are displaying properly.", icon=":material/warning:")
