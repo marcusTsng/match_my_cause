@@ -6,12 +6,13 @@ loadedCharities = dataManagement.loadCharities()
 
 def searchFunction(query):
     query = str(query)
+
     IDsFoundTitle = []
     IDsFoundCats = []
     IDsFoundTags = []
     IDsFoundDesc = []
     for searched in loadedCharities:
-        for searchTerm in query:
+        for searchTerm in query.split(" "):
             if searchTerm in searched.name.lower():
                 IDsFoundTitle.append(searched.ID)
             elif searchTerm in searched.category.lower():
@@ -20,7 +21,6 @@ def searchFunction(query):
                 IDsFoundTags.append(searched.ID)
             elif searchTerm in searched.description.lower():
                 IDsFoundDesc.append(searched.ID)
-
     return IDsFoundTitle + IDsFoundCats + IDsFoundTags + IDsFoundDesc
 
 with st.container(key="logoBar"):
