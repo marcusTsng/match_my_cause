@@ -8,7 +8,7 @@ for listID in range(len(loadedCharities)):
     visits.append([listID, loadedCharities[listID].visits])
 
 numTrending = 3
-trendingCharities = sorted(visits, key=lambda x: x[1], reverse=True)[:numTrending]
+trendingCharities = sorted(visits, key=lambda x: float(x[1]), reverse=True)[:numTrending]
 
 
 with st.container(key="logoBar"):
