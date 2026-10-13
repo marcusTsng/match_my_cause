@@ -83,7 +83,7 @@ with st.container(key="registerPage"):
             submitted = st.button("**Submit**", width='stretch', type='primary')
             if submitted:
                 if alreadySubmitted:
-                    st.toast("You have already submitted one charity. If you wish to make any edits, contact us at matchmycause@gmail.com", icon=":material/info:")
+                    st.toast("You have already submitted one charity. If you wish to make any edits, contact us at info.matchmycause@gmail.com", icon=":material/info:")
                 elif all([newName, newCategory, newWebsite, newDonation, uploadedImages[0], uploadedImages[1]]):
                     uploadTags = ", ".join(newTags)
                     placeholder = st.empty() # Removes ugly spinner without using @st.cache_data to prevent unexpected behaviour
